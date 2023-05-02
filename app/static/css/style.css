@@ -1,0 +1,46 @@
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.table {
+    margin: auto;
+    width: 50% !important;
+}
+
+table th {
+    text-align: center;
+}
+
+#icon,
+#format,
+#submit,
+#product_length,
+#product_filter,
+#product_info,
+#product_paginate,
+#saved {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#icon {
+    font-size: xx-large;
+}
+
+#saved {
+    margin: 20px auto;
+    width: 20%;
+    text-align: center;
+}

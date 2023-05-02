@@ -1,0 +1,32 @@
+{% extends "public/templates/public_template.html" %} {% block main %}
+
+<form class="row g-3" action="/preview" method="POST">
+    <div class="form-group">
+
+        <div class="col-md-4 m-2">
+            <label for="category-list" class="form-label">Category</label>
+            <select id="category-list" class="form-select" name="category-id">
+                <option value="">Choose Category...</option>
+                {% for category in category_list %}
+                    <option value="{{category.id}}">{{category.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-md-4 m-2">
+            <label class="form-label">Keyword</label>
+            <input type="text" class="form-control" name="keyword" placeholder="Enter Keyword..." />
+        </div>
+
+        <div class="col-md-4 m-2">
+            <label class="form-label">Data Size</label>
+            <input type="number" min="100" class="form-control" name="data-size" placeholder="Enter Data Size..." required/>
+        </div>
+
+        <div class="col-md-4 m-2" id="submit">
+            <button type="submit" class="btn btn-primary">Preview</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

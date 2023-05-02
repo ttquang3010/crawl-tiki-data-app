@@ -1,0 +1,60 @@
+{% extends "public/templates/public_template.html" %} {% block main %}
+<table id="product" class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Original Price</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in product_list %}
+        <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.discount}}</td>
+            <td>{{product.original_price}}</td>
+            <td>{{product.rating_average}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<form class="row g-3" action="/save-data" method="POST">
+    <div class="form-group">
+        <div class="col-md-4 m-2">
+            <label class="form-label">Save Path</label>
+            <input type="text" class="form-control" name="save-path" placeholder="Enter Path To Save..." />
+        </div>
+
+        <div class="col-md-4 m-2" id="format">
+            <ul class="list-group list-group-horizontal-sm">
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="radio" name="save-format" value="csv" id="csv" checked/>
+                    <label class="form-check-label">CSV</label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="radio" name="save-format" value="json" id="json" />
+                    <label class="form-check-label">JSON</label>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-4 m-2" id="submit">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %} {%block script%}
+<script>
+    $(document).ready(function() {
+        $('#product').DataTable();
+    });
+</script>
+
+{%endblock%}
